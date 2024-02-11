@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "GenAdd",
+            "request": "launch",
+            "mainClass": "GenAdd",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "MyAddNumbers",
+            "request": "launch",
+            "mainClass": "MyAddNumbers",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "gen1",
+            "request": "launch",
+            "mainClass": "gen1",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "gen2",
+            "request": "launch",
+            "mainClass": "gen2",
+            "projectName": "ASM_28b1a763"
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+public class program1 {
+  public program1();
+    Code:
+       0: aload_0
+       1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void multiplyDouble();
+    Code:
+       0: ldc2_w        #10                 // double 173.43d
+       3: dstore_1
+       4: ldc2_w        #12                 // double 45.56d
+       7: dstore_3
+       8: dload_1
+       9: dload_3
+      10: dmul
+      11: dstore        5
+      13: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      16: dload         5
+      18: invokevirtual #25                 // Method java/io/PrintStream.println:(D)V
+      21: return
+
+  public static void multiplyLong();
+    Code:
+       0: ldc2_w        #27                 // long 17345l
+       3: lstore_1
+       4: ldc2_w        #29                 // long 4456l
+       7: lstore_3
+       8: lload_1
+       9: lload_3
+      10: lmul
+      11: lstore        5
+      13: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      16: lload         5
+      18: invokevirtual #33                 // Method java/io/PrintStream.println:(L)V
+      21: return
+
+  public static void multiplyInteger();
+    Code:
+       0: ldc           #35                 // int 17
+       2: istore_1
+       3: ldc           #36                 // int 44
+       5: istore_3
+       6: iload_1
+       7: iload_3
+       8: imul
+       9: istore        5
+      11: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      14: iload         5
+      16: invokevirtual #39                 // Method java/io/PrintStream.println:(I)V
+      19: return
+
+  public static void multiplyFloat();
+    Code:
+       0: ldc           #41                 // float 17.4f
+       2: fstore_1
+       3: ldc           #42                 // float 44.5f
+       5: fstore_3
+       6: fload_1
+       7: fload_3
+       8: fmul
+       9: fstore        5
+      11: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      14: fload         5
+      16: invokevirtual #45                 // Method java/io/PrintStream.println:(F)V
+      19: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #49                 // String Multiplying doubles:
+       5: invokevirtual #52                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: invokestatic  #54                 // Method multiplyDouble:()V
+      11: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      14: ldc           #56                 // String Multiplying longs:
+      16: invokevirtual #52                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      19: invokestatic  #58                 // Method multiplyLong:()V
+      22: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      25: ldc           #60                 // String Multiplying floats:
+      27: invokevirtual #52                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      30: invokestatic  #62                 // Method multiplyFloat:()V
+      33: getstatic     #19                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      36: ldc           #64                 // String Multiplying integers:
+      38: invokevirtual #52                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      41: invokestatic  #66                 // Method multiplyInteger:()V
+      44: return
+}
