@@ -4,7 +4,69 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "gen9",
+            "request": "launch",
+            "mainClass": "gen9",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "gen8",
+            "request": "launch",
+            "mainClass": "gen8",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "gen7",
+            "request": "launch",
+            "mainClass": "gen7",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "gen6",
+            "request": "launch",
+            "mainClass": "gen6",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "ScannerTest",
+            "request": "launch",
+            "mainClass": "ScannerTest",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "gen4",
+            "request": "launch",
+            "mainClass": "gen4",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "gen5",
+            "request": "launch",
+            "mainClass": "gen5",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "StringTest",
+            "request": "launch",
+            "mainClass": "StringTest",
+            "projectName": "ASM_28b1a763"
+        },
+        {
+            "type": "java",
+            "name": "gen3",
+            "request": "launch",
+            "mainClass": "gen3",
+            "projectName": "ASM_28b1a763"
+        },
         {
             "type": "java",
             "name": "Current File",
