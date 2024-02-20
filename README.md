@@ -1,7 +1,7 @@
 Compiler Assignment 3
 CS322
-Compiler Construc�on
-Inves�ga�ng JVM Bytecode and the ASM Bytecode Library (100 points)
+Compiler Construcion
+Investigating JVM Bytecode and the ASM Bytecode Library (100 points)
 Project Goal: To investigate Java bytecode and use the ASM bytecode library to write simple
 bytecode programs.
 Overview: For this project you will write several programs using the ASM library to generate
