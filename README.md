@@ -9,7 +9,7 @@ Overview: For this project you will write several programs using the ASM library
 Instructions: Write a program for each numbered item below to generate a class file that will
 perform that action. In parentheses after each item is the name your .java file should have the
 name of the java class it creates.
-1. Mul�ply two numbers (I, L, F, and D), store them, and then print each result
+1. Multiply two numbers (I, L, F, and D), store them, and then print each result
 (gen1.java,program1.class)
 2. Subtract two numbers (I, L, F, and D), store them, and then print each result
 (gen2.java,program2.class)
