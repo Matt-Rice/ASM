@@ -1,3 +1,10 @@
+/**
+ * @author Matt Rice
+ * @version 2-16-24
+ * CS 322
+ * gen5.java
+ * Produces a class file that declares and prints a string value
+ */
 import static utils.Utilities.writeFile;
 
 import org.objectweb.asm.*;
@@ -20,7 +27,9 @@ public class gen5{
 			mv.visitEnd();
 		}
 
-        MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);{
+        // main method visitor
+        {
+        MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
             mv.visitCode();
 
             //Load the String "Hello World!" and store it
@@ -35,15 +44,16 @@ public class gen5{
             mv.visitInsn(Opcodes.RETURN);
             mv.visitMaxs(0,0);
             mv.visitEnd();
-        }
-        
+        } //end main method visitor
+
+        cw.visitEnd();
         
         byte[] b = cw.toByteArray();
 
         writeFile(b,"program5.class");
         
         System.out.println("Done!");
-    }
-}
+    }// end main
+}//end gen5
     
 

@@ -1,3 +1,10 @@
+/**
+ * @author Matt Rice
+ * @version 2-16-24
+ * CS 322
+ * gen6.java
+ * Produces a class file that can read inputs of several different types and then can print them
+ */
 import static utils.Utilities.writeFile;
 
 import org.objectweb.asm.*;
@@ -9,6 +16,7 @@ public class gen6{
         ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
         cw.visit(Opcodes.V1_8, Opcodes.ACC_PUBLIC,"program6", null, "java/lang/Object",null);
         
+        // Creating the constructor
         {
 			MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC, "<init>", "()V", null, null);
 			mv.visitCode();
@@ -18,6 +26,8 @@ public class gen6{
 			mv.visitMaxs(1,1);
 			mv.visitEnd();
 		}
+
+        // MethodVisitor for the main method
 
         {
             MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
@@ -85,7 +95,7 @@ public class gen6{
             mv.visitInsn(Opcodes.RETURN);
             mv.visitMaxs(0,0);
             mv.visitEnd();
-        }
+        }// end main methodvisitor
 
         cw.visitEnd();
 
@@ -95,4 +105,4 @@ public class gen6{
         
         System.out.println("Done!");
     }//end main
-}//end class
+}//end gen6

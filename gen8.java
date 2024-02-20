@@ -1,3 +1,11 @@
+/**
+ * @author Matt Rice
+ * @version 2-16-24
+ * CS 322
+ * gen8.java
+ * Produces a class file that will implement an if else statement that will check if the integer value entered by 
+ * a user is even or odd and will print if even or odd
+ */
 import static utils.Utilities.writeFile;
 
 import org.objectweb.asm.*;
@@ -23,7 +31,10 @@ public class gen8{
 			mv.visitEnd();
 		}
 
-        MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);{
+        // main
+
+        {
+        MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
             mv.visitCode();
             
            // Initializes the Scanner object
@@ -76,8 +87,10 @@ public class gen8{
             mv.visitInsn(Opcodes.RETURN);
             mv.visitMaxs(0,0);
             mv.visitEnd();
-        }
+        } //end main methodvisitor
         
+        cw.visitEnd();
+
         byte[] b = cw.toByteArray();
 
         writeFile(b,"program8.class");

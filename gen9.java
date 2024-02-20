@@ -1,5 +1,11 @@
-/*Get input (I or D), from the user, run a loop that adds that number to an accumulator,
-and then print the result. (gen9.java,program9.class)*/
+/**
+ * @author Matt Rice
+ * @version 2-16-24
+ * CS 322
+ * gen9.java
+ * Produces a class file that will get inputs from a user and run a loop 
+ * that adds the entered values to an accumulator and prints the result, the user will enter 0 to stop
+ */
 
 import static utils.Utilities.writeFile;
 
@@ -26,7 +32,10 @@ public class gen9{
 			mv.visitEnd();
 		}
 
-        MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);{
+        // main
+
+        {
+        MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
             mv.visitCode();
             
            // Initializes the Scanner object
@@ -93,13 +102,15 @@ public class gen9{
             mv.visitInsn(Opcodes.RETURN);
             mv.visitMaxs(0,0);
             mv.visitEnd();
-        }
+        }// end main
         
+        cw.visitEnd();
+
         byte[] b = cw.toByteArray();
 
         writeFile(b,"program9.class");
         
         System.out.println("Done!");
     }//end main
-}//end gen8
+}//end gen9
     

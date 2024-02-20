@@ -4,6 +4,7 @@
  * CS 322
  * gen1.java
  * Produces a class file that can perform multiplication on several values of data types
+ * Note: the documentation is very heavy because I wrote this before I asked you if this documentation was too much
  */
 import static utils.Utilities.writeFile;
 
@@ -27,6 +28,7 @@ public class gen1{
 			mv.visitEnd();
 		}
 
+        // MethodVisitor for main method
         {
             MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
             mv.visitCode();
@@ -37,10 +39,10 @@ public class gen1{
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
             
             //Multiplying doubles
-            mv.visitLdcInsn((double)3.14); // first param
+            mv.visitLdcInsn((Double)3.14); // first param
             mv.visitVarInsn(Opcodes.DSTORE,1); // store first parameter
 
-            mv.visitLdcInsn((double)2.71); // second param
+            mv.visitLdcInsn((Double)2.71); // second param
             mv.visitVarInsn(Opcodes.DSTORE,3); // store second parameter
 
             mv.visitVarInsn(Opcodes.DLOAD,1); // load var1
@@ -82,18 +84,18 @@ public class gen1{
             
             // loading values to the constant pool and invoking multiplyFloat()
             mv.visitLdcInsn((float)2.71); // second param
-            mv.visitVarInsn(Opcodes.FSTORE,0); // store first param
+            mv.visitVarInsn(Opcodes.FSTORE,1); // store first param
 
             mv.visitLdcInsn((float)3.14); // first param
-            mv.visitVarInsn(Opcodes.FSTORE,1); // store second param
+            mv.visitVarInsn(Opcodes.FSTORE,2); // store second param
 
-            mv.visitVarInsn(Opcodes.FLOAD,0); // load var1
-            mv.visitVarInsn(Opcodes.FLOAD,1); // load var2
+            mv.visitVarInsn(Opcodes.FLOAD,1); // load var1
+            mv.visitVarInsn(Opcodes.FLOAD,2); // load var2
             mv.visitInsn(Opcodes.FMUL); // product of var1 and var2
             mv.visitVarInsn(Opcodes.FSTORE,3); // store product
 
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;"); // get out
-            mv.visitVarInsn(Opcodes.FLOAD, 4); // load product
+            mv.visitVarInsn(Opcodes.FLOAD, 3); // load product
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(F)V", false); // invoke print
             
             
@@ -103,28 +105,28 @@ public class gen1{
             mv.visitLdcInsn("Multiplying integers:");
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
             
-            // loading values to the constant pool and invoking multiplyInteger()
-            mv.visitLdcInsn(40); // first param
-            mv.visitVarInsn(Opcodes.ISTORE,0); // store first param
+            // loading and storing values
+            mv.visitLdcInsn((Integer)40); // first param
+            mv.visitVarInsn(Opcodes.ISTORE,1); // store first param
 
              // load second param
-             mv.visitLdcInsn(26); // second param
-            mv.visitVarInsn(Opcodes.ISTORE,1); // store second param
+             mv.visitLdcInsn((Integer)26); // second param
+            mv.visitVarInsn(Opcodes.ISTORE,2); // store second param
 
-            mv.visitVarInsn(Opcodes.ILOAD,0); // load var1
-            mv.visitVarInsn(Opcodes.ILOAD,1); // load var2
+            mv.visitVarInsn(Opcodes.ILOAD,1); // load var1
+            mv.visitVarInsn(Opcodes.ILOAD,2); // load var2
             mv.visitInsn(Opcodes.IMUL); // multiply var1 and var2
-            mv.visitVarInsn(Opcodes.ISTORE,2); // store product
+            mv.visitVarInsn(Opcodes.ISTORE,3); // store product
 
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;"); // get out
-            mv.visitVarInsn(Opcodes.ILOAD, 2); // load product
+            mv.visitVarInsn(Opcodes.ILOAD, 3); // load product
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V", false); // invoke print
             
             // Ending main
             mv.visitInsn(Opcodes.RETURN);
             mv.visitMaxs(0, 0);
             mv.visitEnd();
-        }
+        }// end methodvisitor
         
         cw.visitEnd();
 
@@ -134,5 +136,5 @@ public class gen1{
         
         System.out.println("Done!");
     }//end main
-}//end class
+}//end gen1
 

@@ -1,4 +1,10 @@
-
+/**
+ * @author Matt Rice
+ * @version 2-13-24
+ * CS 322
+ * gen3.java
+ * Produces a class file that can perform division on several values of data types
+ */
 import static utils.Utilities.writeFile;
 
 import org.objectweb.asm.*;
@@ -68,7 +74,7 @@ public class gen3{
             // Prints the result
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
             mv.visitVarInsn(Opcodes.LLOAD, 5);
-            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(L)V", false);
+            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(J)V", false);
             
             // Prints dividing floats
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
@@ -77,19 +83,19 @@ public class gen3{
             
             // Loads and stores the variables
             mv.visitLdcInsn((Float)17.4f);
-            mv.visitVarInsn(Opcodes.FSTORE,0);
-            mv.visitLdcInsn((Float)44.5f);
             mv.visitVarInsn(Opcodes.FSTORE,1);
+            mv.visitLdcInsn((Float)44.5f);
+            mv.visitVarInsn(Opcodes.FSTORE,2);
 
             // Divides the variables and stores the result
-            mv.visitVarInsn(Opcodes.FLOAD,0);
             mv.visitVarInsn(Opcodes.FLOAD,1);
+            mv.visitVarInsn(Opcodes.FLOAD,2);
             mv.visitInsn(Opcodes.FDIV);
-            mv.visitVarInsn(Opcodes.FSTORE,5);
+            mv.visitVarInsn(Opcodes.FSTORE,3);
 
             // Prints the result
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-            mv.visitVarInsn(Opcodes.FLOAD, 5);
+            mv.visitVarInsn(Opcodes.FLOAD, 3);
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(F)V", false);
             
             // Prints dividing integers
@@ -101,24 +107,25 @@ public class gen3{
             mv.visitLdcInsn((Integer)17);
             mv.visitVarInsn(Opcodes.ISTORE,1);
             mv.visitLdcInsn((Integer)44);
-            mv.visitVarInsn(Opcodes.ISTORE,3);
+            mv.visitVarInsn(Opcodes.ISTORE,2);
 
             // Divides the variables and stores the result
             mv.visitVarInsn(Opcodes.ILOAD,1);
-            mv.visitVarInsn(Opcodes.ILOAD,3);
+            mv.visitVarInsn(Opcodes.ILOAD,2);
             mv.visitInsn(Opcodes.IDIV);
-            mv.visitVarInsn(Opcodes.ISTORE,5);
+            mv.visitVarInsn(Opcodes.ISTORE,3);
 
             // Prints the result
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-            mv.visitVarInsn(Opcodes.ILOAD, 5);
+            mv.visitVarInsn(Opcodes.ILOAD, 3);
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V", false);
             
             
             mv.visitInsn(Opcodes.RETURN);
             mv.visitMaxs(0, 0);
             mv.visitEnd();
-        }
+        }// end methodvisitor
+        
         cw.visitEnd();
 
         byte[] b = cw.toByteArray();
@@ -127,5 +134,5 @@ public class gen3{
         
         System.out.println("Done!");
     }//end main
-}//end class
+}//end gen3
 

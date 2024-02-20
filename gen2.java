@@ -1,4 +1,11 @@
 
+/**
+ * @author Matt Rice
+ * @version 2-13-24
+ * CS 322
+ * gen2.java
+ * Produces a class file that can perform subtraction on several data types
+ */
 import static utils.Utilities.writeFile;
 
 import org.objectweb.asm.*;
@@ -20,6 +27,8 @@ public class gen2{
 			mv.visitMaxs(1,1);
 			mv.visitEnd();
 		}
+
+        // MethodVisitor for main method
 
         {
             MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
@@ -67,7 +76,7 @@ public class gen2{
             // Printing Result
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
             mv.visitVarInsn(Opcodes.LLOAD, 5);
-            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(L)V", false);
+            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(J)V", false);
             
             // Printing subtracting floats
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
@@ -76,13 +85,13 @@ public class gen2{
             
             // Loading and storing variables
             mv.visitLdcInsn((Float)17.4f);
-            mv.visitVarInsn(Opcodes.FSTORE,0);
-            mv.visitLdcInsn((Float)44.5f);
             mv.visitVarInsn(Opcodes.FSTORE,1);
+            mv.visitLdcInsn((Float)44.5f);
+            mv.visitVarInsn(Opcodes.FSTORE,2);
 
             // Subtracting and storing result
-            mv.visitVarInsn(Opcodes.FLOAD,0);
             mv.visitVarInsn(Opcodes.FLOAD,1);
+            mv.visitVarInsn(Opcodes.FLOAD,2);
             mv.visitInsn(Opcodes.FSUB);
             mv.visitVarInsn(Opcodes.FSTORE,3);
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
@@ -96,25 +105,26 @@ public class gen2{
            
             // Loading and storing variables
             mv.visitLdcInsn((Integer)17);
-            mv.visitVarInsn(Opcodes.ISTORE,0);
-            mv.visitLdcInsn((Integer)44);
             mv.visitVarInsn(Opcodes.ISTORE,1);
-
-            mv.visitVarInsn(Opcodes.ILOAD,0);
-            mv.visitVarInsn(Opcodes.ILOAD,1);
-            mv.visitInsn(Opcodes.ISUB);
+            mv.visitLdcInsn((Integer)44);
             mv.visitVarInsn(Opcodes.ISTORE,2);
+
+            mv.visitVarInsn(Opcodes.ILOAD,1);
+            mv.visitVarInsn(Opcodes.ILOAD,2);
+            mv.visitInsn(Opcodes.ISUB);
+            mv.visitVarInsn(Opcodes.ISTORE,3);
 
             // Printing the result
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-            mv.visitVarInsn(Opcodes.ILOAD, 2);
+            mv.visitVarInsn(Opcodes.ILOAD, 3);
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V", false);
             
             // Ending main
             mv.visitInsn(Opcodes.RETURN);
             mv.visitMaxs(0, 0);
             mv.visitEnd();
-        }
+        }// end methodvisitor
+    
         cw.visitEnd();
 
         byte[] b = cw.toByteArray();
