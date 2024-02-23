@@ -38,7 +38,7 @@ public class gen8{
             mv.visitCode();
             
            // Initializes the Scanner object
-           mv.visitTypeInsn(Opcodes.NEW, "Ljava/util/Scanner"); // Creates Scanner and pushes it to the stack
+           mv.visitTypeInsn(Opcodes.NEW, "java/util/Scanner"); // Creates Scanner and pushes it to the stack
            mv.visitInsn(Opcodes.DUP); // Duplicates the Scanner reference which will be used in initializing and storing the scanner
            mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "in", "Ljava/io/InputStream;"); // System.in
            mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/util/Scanner", "<init>", "(Ljava/io/InputStream;)V", false); // Initializes Scanner
