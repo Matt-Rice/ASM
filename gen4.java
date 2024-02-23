@@ -79,17 +79,17 @@ public class gen4{
             // Loading and storing variables
             mv.visitLdcInsn((Integer)17);
             mv.visitVarInsn(Opcodes.ISTORE,1);
-            mv.visitLdcInsn((Integer)44);
-            mv.visitVarInsn(Opcodes.ISTORE,2);
+            mv.visitLdcInsn((Integer)49);
+            mv.visitVarInsn(Opcodes.ISTORE,3);
 
             // Compares the two variables and if the first is greater than or equal to the second, it will jump to the label iGreaterEqual
             mv.visitVarInsn(Opcodes.ILOAD,1);
-            mv.visitVarInsn(Opcodes.ILOAD,2);
+            mv.visitVarInsn(Opcodes.ILOAD,3);
             mv.visitJumpInsn(Opcodes.IF_ICMPGE, iGreaterEqual);
     
             // If int1<int2 prints the second int variable
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-            mv.visitVarInsn(Opcodes.ILOAD, 2);
+            mv.visitVarInsn(Opcodes.ILOAD, 3);
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V", false);
             
             //Jump to next comparison
@@ -111,23 +111,23 @@ public class gen4{
             
             // Loads and stores variables
             mv.visitLdcInsn(4800l);
-            mv.visitVarInsn(Opcodes.LSTORE,1);
+            mv.visitVarInsn(Opcodes.LSTORE,5);
             mv.visitLdcInsn(4895l);
-            mv.visitVarInsn(Opcodes.LSTORE,3);
+            mv.visitVarInsn(Opcodes.LSTORE,7);
 
             // Compares the two longs and compares them using LCMP
-            mv.visitVarInsn(Opcodes.LLOAD,1);
-            mv.visitVarInsn(Opcodes.LLOAD,3);
+            mv.visitVarInsn(Opcodes.LLOAD,5);
+            mv.visitVarInsn(Opcodes.LLOAD,7);
             mv.visitInsn(Opcodes.LCMP); // returns 1 if long1>long2, 0 long1==long2, -1 long1<long2
-            mv.visitVarInsn(Opcodes.ISTORE,5); // store comparison result
+            mv.visitVarInsn(Opcodes.ISTORE,9); // store comparison result
             
             // Loads the comparison result and if it is greater than equal to zero, it will jump to lGreaterEqual
-            mv.visitVarInsn(Opcodes.ILOAD, 5); // load comparison result
+            mv.visitVarInsn(Opcodes.ILOAD, 9); // load comparison result
             mv.visitJumpInsn(Opcodes.IFGE, lGreaterEqual); // If cmp result >=0 jump to lgreaterEqual label
 
             // long1<long2
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-            mv.visitVarInsn(Opcodes.LLOAD, 3);
+            mv.visitVarInsn(Opcodes.LLOAD, 7);
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(J)V", false);
 
             //jump to end of program
@@ -136,13 +136,13 @@ public class gen4{
             // long1>=long2
             mv.visitLabel(lGreaterEqual);
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-            mv.visitVarInsn(Opcodes.LLOAD, 1);
+            mv.visitVarInsn(Opcodes.LLOAD, 5);
             mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(J)V", false);
             
             mv.visitLabel(endProgram);
 
             mv.visitInsn(Opcodes.RETURN);
-            //mv.visitMaxs(0, 0);
+            mv.visitMaxs(0, 0);
             mv.visitEnd();
         }// end main method visitor
 
