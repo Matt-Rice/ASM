@@ -74,7 +74,7 @@ public class gen1{
 
             mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;"); // get out
             mv.visitVarInsn(Opcodes.LLOAD, 5); // load product
-            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(L)V", false); // print
+            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(J)V", false); // print
             
            
             // Print Multiplying floats:
