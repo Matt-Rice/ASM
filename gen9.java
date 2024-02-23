@@ -39,14 +39,15 @@ public class gen9{
             mv.visitCode();
             
            // Initializes the Scanner object
-           mv.visitTypeInsn(Opcodes.NEW, "Ljava/util/Scanner"); // Creates Scanner and pushes it to the stack
-           mv.visitInsn(Opcodes.DUP); // Duplicates the Scanner reference which will be used in initializing and storing the scanner
-           mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "in", "Ljava/io/InputStream;"); // System.in
-           mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/util/Scanner", "<init>", "(Ljava/io/InputStream;)V", false); // Initializes Scanner
-           mv.visitVarInsn(Opcodes.ASTORE, 1); // Stores Scanner
+           mv.visitTypeInsn(Opcodes.NEW, "java/util/Scanner"); // Creates Scanner and pushes it to the stack
+            mv.visitInsn(Opcodes.DUP); // Duplicates the Scanner reference which will be used in initializing and storing the scanner
+            mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "in", "Ljava/io/InputStream;"); // System.in
+            mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/util/Scanner", "<init>", "(Ljava/io/InputStream;)V", false); // Initializes Scanner
+            mv.visitVarInsn(Opcodes.ASTORE, 1); // Stores Scanner
             
             //Declare and initialize the accumulator variable to zero
-            mv.visitVarInsn(Opcodes.ICONST_0, 2);
+            mv.visitLdcInsn(0);
+            mv.visitVarInsn(Opcodes.ISTORE, 2);
 
             // Label that will be visited to restart the loop
             mv.visitLabel(startLoop);
